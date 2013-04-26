@@ -1,0 +1,8 @@
+﻿## Interface: 50200
+## Title: TextureBasics |cFF99CC01rev |cFFFF00001.0.0
+## Notes: Texture Basics.
+## Author: Resike
+## Version: 1.0.0
+## DefaultState: Enabled
+
+TextureBasics.lua
