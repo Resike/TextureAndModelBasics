@@ -1,18 +1,19 @@
+-- Create a frame
+local f = CreateFrame("frame", "TextureBasics")
+-- Frame Strata ("Background", "Low", "Medium", "High", "Dialog", "Fullscreen", "Fullscreen_Dialog", "Tooltip")
+f:SetFrameStrata("Medium")
+-- Frame Strata level (0 - 20)
+f:SetFrameLevel(0)
+-- Frame Width
+f:SetWidth(128)
+-- Frame Height
+f:SetHeight(128)
+-- Frame Alpha
+f:SetAlpha(0.90)
+-- Frame Position
+f:SetPoint("CENTER", 0, 0);
+
 function TextureBasics_CreateTexture(texture)
-	-- Create a frame
-	local f = CreateFrame("frame", "TextureBasics")
-	-- Frame Strata ("Background", "Low", "Medium", "High", "Dialog", "Fullscreen", "Fullscreen_Dialog", "Tooltip")
-	f:SetFrameStrata("Medium")
-	-- Frame Strata level (0 - 20)
-	f:SetFrameLevel(0)
-	-- Frame Width
-	f:SetWidth(128)
-	-- Frame Height
-	f:SetHeight(128)
-	-- Frame Alpha
-	f:SetAlpha(0.90)
-	-- Frame Position
-	f:SetPoint("CENTER", 0, 0);
 	-- Create a texture on the frame
 	local t = f:CreateTexture("Texture", "Background")
 	-- Set the texture
