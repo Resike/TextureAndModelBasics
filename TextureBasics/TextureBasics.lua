@@ -1,19 +1,18 @@
--- Create a frame
-local f = CreateFrame("frame", "TextureBasics")
--- Frame Strata ("Background", "Low", "Medium", "High", "Dialog", "Fullscreen", "Fullscreen_Dialog", "Tooltip")
-f:SetFrameStrata("Medium")
--- Frame Strata level (0 - 20)
-f:SetFrameLevel(0)
--- Frame Width
-f:SetWidth(128)
--- Frame Height
-f:SetHeight(128)
--- Frame Alpha
-f:SetAlpha(0.90)
--- Frame Position
-f:SetPoint("CENTER", 0, 0);
-
 function TextureBasics_CreateTexture(texture)
+	-- Create a frame
+	local f = CreateFrame("frame", "TextureBasics")
+	-- Frame Strata ("Background", "Low", "Medium", "High", "Dialog", "Fullscreen", "Fullscreen_Dialog", "Tooltip")
+	f:SetFrameStrata("Medium")
+	-- Frame Strata level (0 - 20)
+	f:SetFrameLevel(0)
+	-- Frame Width
+	f:SetWidth(128)
+	-- Frame Height
+	f:SetHeight(128)
+	-- Frame Alpha
+	f:SetAlpha(0.90)
+	-- Frame Position
+	f:SetPoint("CENTER", 0, 0);
 	-- Create a texture on the frame
 	local t = f:CreateTexture("Texture", "Background")
 	-- Set the texture
@@ -33,6 +32,12 @@ function TextureBasics_CreateTexture(texture)
 	-- If you rotate it you need multiply the frame's width and height by sqrt(2)
 	f:SetWidth(sqrt(2) * t:GetWidth())
 	f:SetHeight(sqrt(2) * t:GetHeight())
+	-- Mirror it
+	local ULx, ULy, LLx, LLy, URx, URy, LRx, LRy = t:GetTexCoord();
+	--t:SetTexCoord(URx, URy, LRx, LRy, ULx, ULy, LLx, LLy); -- Inverse X
+	--t:SetTexCoord(LLx, LLy, ULx, ULy, LRx, LRy, URx, URy); -- Inverse Y
+	--t:SetTexCoord(LRx, LRy, URx, URy, LLx, LLy, ULx, ULy); -- Inverse XY
+	t:SetTexCoord(ULx, ULy, LLx, LLy, URx, URy, LRx, LRy); -- Normal
 	-- Put the texture on the frame
 	t:SetAllPoints(f)
 	-- Show it
